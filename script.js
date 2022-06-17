@@ -1,12 +1,10 @@
 let movies = [];
-const movieGridElement = document.querySelector("#movie-grid")
+const movieGridElement = document.querySelector("#movies-grid")
 const searchBarElement = document.querySelector("#search")
 const searchParamElement = document.querySelector("#search-param")
 const loadPagesElement = document.querySelector("#loading-pages")
 let page = 1
 const clearButtonElement = document.querySelector("#clear")
-let vidElement = ""
-
 
 
 
@@ -47,9 +45,7 @@ function MakeMovieCard(movie, movieGridElement) {
     </div>
     <label>
     </div>
-
     `
-
 }
 
 async function pageFetch() {
@@ -60,9 +56,7 @@ async function pageFetch() {
     data.results.forEach( m => {
         MakeMovieCard(m, movieGridElement);
         movies.push(m);
-        videoFetch(m.id);
-        console.log(vidElement);
-        console.log(m.id)
+        // videoFetch(m.id); (adding videos to every card makes it too slow)
     })
     return true;
 
@@ -97,24 +91,6 @@ async function videoFetch(id) {
     <iframe width="400" height="225" id="vidsize" src="https://www.youtube.com/embed/${trailer_id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     `
 }
-
-// async function popUpFetch(movie, id) {
-//     try {
-//         let response = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=37cc0cbdaac624f489425d7c02626f31`)
-//         info = await response.json()
-//         return true;
-//     }
-//     catch (e) {
-//         alert("error contacting server")
-//     }
-
-// }
-
-function hidePopUp(popUpElement) {
-
-}
-
-
 
 
 window.onload = function () {

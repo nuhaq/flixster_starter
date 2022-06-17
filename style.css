@@ -13,6 +13,12 @@ html {
     justify-items: center;
 }
 
+#loadbtn {
+    background-color:antiquewhite;
+    padding: 12px;
+    border-radius: 14px;
+}
+
 h1 {
     text-align: center;
     color: antiquewhite;
@@ -20,19 +26,19 @@ h1 {
     margin-bottom: 40px;
 }
 
-#movie-grid {
+#movies-grid {
     display: grid;
     grid-gap: 30px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 @media screen and (max-width: 1000px){
-    #movie-grid{
+    #movies-grid{
         grid-template-columns: 1fr 1fr;
     }
 }
 @media screen and (max-width: 800px){
-    #movie-grid{
+    #movies-grid{
         grid-template-columns: 1fr;
     }
 }
