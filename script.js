@@ -17,7 +17,6 @@ async function movieFetch() {
         }
         movies = await response.json()
         movies = movies.results
-        console.log(movies)
         return true;
     }
     catch (e) {
@@ -49,7 +48,6 @@ function MakeMovieCard(movie, movieGridElement) {
 }
 
 async function pageFetch() {
-    console.log("hi")
     page +=1
     let response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=37cc0cbdaac624f489425d7c02626f31&page=${page}`)
     let data = await response.json()
@@ -65,11 +63,9 @@ async function pageFetch() {
 async function searchFetch(searchParams) {
     if (!searchParams) return;
     try {
-        console.log(searchParams)
         let response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=37cc0cbdaac624f489425d7c02626f31&language=en-US&query=${searchParams}`);
         searchResults = await response.json()
         let searchMovies = searchResults.results
-        console.log(searchMovies)
         movieGridElement.innerHTML = ``;
         searchMovies.forEach(m => MakeMovieCard(m, movieGridElement))
     }
