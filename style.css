@@ -1,1 +1,78 @@
+html {
+    scroll-behavior: smooth;
+}
 
+h1 {
+    text-align: center;
+}
+
+#movie-grid {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media screen and (max-width: 1000px){
+    #movie-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width: 800px){
+    #movie-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+#title {
+    font-size: larger;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: rgb(189, 121, 32)
+
+
+}
+
+#vote {
+    color: rgb(50, 17, 235);
+    font-size: x-large;
+    align-items: center;
+    text-align: center;
+
+}
+
+.movie-card {
+    align-items: center;
+    transition: 0.2s;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+}
+
+
+
+#pic {
+    border-radius: 15px;
+    size: 100px;
+    max-height: 100%;
+    max-width: auto;
+    width: 100%;
+}
+ .btn {
+    background-color:antiquewhite;
+    padding: 12px;
+    border-radius: 14px;
+    font-size: large;
+}
+.btn:hover {
+    background-color: aliceblue;
+    transition: 0.3s;
+}
+
+.bar {
+    padding: 13px;
+    border-radius: 10px;
+    font-size: large;
+    width: 40%;
+
+} 
