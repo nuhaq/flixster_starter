@@ -5,6 +5,8 @@ const searchParamElement = document.querySelector("#search-param")
 const loadPagesElement = document.querySelector("#loading-pages")
 let page = 1
 const clearButtonElement = document.querySelector("#clear")
+let vidElement = ""
+
 
 
 
@@ -26,8 +28,7 @@ async function movieFetch() {
 }
 
 function MakeMovieCard(movie, movieGridElement) {
-
-    movieGridElement.innerHTML += `<div>
+    movieGridElement.innerHTML += `<div class ="container">
     <input type="checkbox" class ="box"id="${movie.id}"/>
     <label for="${movie.id}">
     <div class="flip-card active">
@@ -37,15 +38,14 @@ function MakeMovieCard(movie, movieGridElement) {
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" id="pic" alt="poster of ${movie.title}">
             <h3 id="vote"> Rating: ${movie.vote_average} </h3>
         </div>
-        <div class="flip-card-back">
+        <div class="flip-card-back" id="id-${movie.id}">
       <h2 id="title">${movie.title}</h2> 
-      <p>${movie.overview}</p> 
-      <p>${movie.vote_average}</p>
+      <p id="overview">${movie.overview}</p> 
+      <p id="vote-pt2">Average rating of ${movie.vote_average} by ${movie.vote_count} people</p>
     </div>
     </div>
     </div>
     <label>
-
     </div>
 
     `
@@ -60,6 +60,9 @@ async function pageFetch() {
     data.results.forEach( m => {
         MakeMovieCard(m, movieGridElement);
         movies.push(m);
+        videoFetch(m.id);
+        console.log(vidElement);
+        console.log(m.id)
     })
     return true;
 
@@ -77,8 +80,22 @@ async function searchFetch(searchParams) {
         searchMovies.forEach(m => MakeMovieCard(m, movieGridElement))
     }
     catch (e) {
-        alert("error contacting serevr")
+        alert("error contacting server")
     }
+}
+
+async function videoFetch(id) {
+    let response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=37cc0cbdaac624f489425d7c02626f31&language=en-US`);
+    let vidLink = await response.json()
+    let trailer_id = ""
+    vidLink.results.forEach(e => {
+        if (e.type === "Trailer") {
+            trailer_id=e.key
+        }
+    })
+    document.querySelector(`#id-${id}`).innerHTML += `
+    <iframe width="400" height="225" id="vidsize" src="https://www.youtube.com/embed/${trailer_id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    `
 }
 
 // async function popUpFetch(movie, id) {
@@ -98,21 +115,15 @@ function hidePopUp(popUpElement) {
 }
 
 
-function addEventListeners(searchBarElement) {
-
-    // searchBarElement.addEventListener("submit", (e) => {
-    //     e.preventDefault();
-    //     searchFetch(searchParamElement.value)
-    // })
-    
-}
 
 
 window.onload = function () {
     movieFetch().then(data => {
-        movies.forEach(m => MakeMovieCard(m, movieGridElement))
+        movies.forEach(m => {
+            MakeMovieCard(m, movieGridElement);
+            videoFetch(m.id)
+        })
     });
-    addEventListeners(searchBarElement)
     loadPagesElement.onclick = () => pageFetch();
     searchBarElement.onclick = (e) => {
         e.preventDefault();
@@ -124,5 +135,4 @@ window.onload = function () {
         movies.forEach(m => MakeMovieCard(m, movieGridElement))
         
     }
-
 }

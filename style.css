@@ -8,6 +8,11 @@ html {
    
 }
 
+#vidsize {
+    align-items: center;
+    justify-items: center;
+}
+
 h1 {
     text-align: center;
     color: antiquewhite;
@@ -54,9 +59,9 @@ h1 {
     transition: 0.2s;
 }
 
-/* .movie-card:hover {
+.movie-card:hover {
     transform: translateY(-10px);
-} */
+}
 
 
 
@@ -90,23 +95,35 @@ h1 {
     font-family: Verdana;
 } 
 
+#vote-pt2 {
+    font-size:larger;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    line-height: 60px;
+
+}
+
+#overview {
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 30px;
+    text-align: center;
+}
 
 
-
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
   
 .flip-card {
     perspective: 1000px;
-    height:1000px;
+    height:900px;
     max-height: 100%;
     max-width: auto;
     width: 100%;
     size: 100px;
+    position: relative;
 
   }
   
   
-  /* This container is needed to position the front and back side */
   .flip-card-inner {
     position: relative;
     transition: transform 0.8s;
@@ -114,11 +131,7 @@ h1 {
     height: 100%;
   }
   
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  /* .flip-card:checked + label  .flip-card-inner {
-    transform: rotateY(180deg);
-  } */
-  
+
   .box{
     display: none;
   }
@@ -132,7 +145,6 @@ h1 {
   }
   
   
-  /* Style the back side */
   .flip-card-back {
     color: white;
     transform: rotateY(180deg);
