@@ -1,9 +1,18 @@
 html {
     scroll-behavior: smooth;
+    margin-left: 80px;
+    margin-right: 80px;
+    background-attachment: fixed;
+    background-color: rgb(29, 16, 41);
+    margin-top: 20px;
+   
 }
 
 h1 {
     text-align: center;
+    color: antiquewhite;
+    font-size: 60px;
+    margin-bottom: 40px;
 }
 
 #movie-grid {
@@ -27,13 +36,13 @@ h1 {
     font-size: larger;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
-    color: rgb(189, 121, 32)
+    color: rgb(219, 180, 128)
 
 
 }
 
 #vote {
-    color: rgb(50, 17, 235);
+    color: rgb(181, 174, 223);
     font-size: x-large;
     align-items: center;
     text-align: center;
@@ -45,9 +54,9 @@ h1 {
     transition: 0.2s;
 }
 
-.movie-card:hover {
+/* .movie-card:hover {
     transform: translateY(-10px);
-}
+} */
 
 
 
@@ -57,6 +66,7 @@ h1 {
     max-height: 100%;
     max-width: auto;
     width: 100%;
+    color: antiquewhite;
 }
  .btn {
     background-color:antiquewhite;
@@ -74,5 +84,60 @@ h1 {
     border-radius: 10px;
     font-size: large;
     width: 40%;
-
+    margin-bottom: 50px;
+    background-color: antiquewhite;
+    color: rgb(47, 27, 67);
+    font-family: Verdana;
 } 
+
+
+
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+  
+.flip-card {
+    perspective: 1000px;
+    height:1000px;
+    max-height: 100%;
+    max-width: auto;
+    width: 100%;
+    size: 100px;
+
+  }
+  
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    height: 100%;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  /* .flip-card:checked + label  .flip-card-inner {
+    transform: rotateY(180deg);
+  } */
+  
+  .box{
+    display: none;
+  }
+  input:checked + label .flip-card .flip-card-inner{
+    transform: rotateY(180deg);
+  }
+  .movie-card, .flip-card-back {
+    position: absolute;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+  }
+  
+  
+  /* Style the back side */
+  .flip-card-back {
+    color: white;
+    transform: rotateY(180deg);
+    size: 100px
+  }
+
+
+  

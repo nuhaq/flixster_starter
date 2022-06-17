@@ -7,6 +7,7 @@ let page = 1
 const clearButtonElement = document.querySelector("#clear")
 
 
+
 async function movieFetch() {
     try {
         let response = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=37cc0cbdaac624f489425d7c02626f31")
@@ -25,12 +26,28 @@ async function movieFetch() {
 }
 
 function MakeMovieCard(movie, movieGridElement) {
-    movieGridElement.innerHTML += `
-    <div class="movie-card">
-        <h1 id="title"> ${movie.title} </h1>
-        <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" id="pic" alt="poster of ${movie.title}">
-        <h3 id="vote"> Rating: ${movie.vote_average} </h3>
+
+    movieGridElement.innerHTML += `<div>
+    <input type="checkbox" class ="box"id="${movie.id}"/>
+    <label for="${movie.id}">
+    <div class="flip-card active">
+    <div class="flip-card-inner">
+        <div class="movie-card">
+            <h2 id="title"> ${movie.title} </h2>
+            <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" id="pic" alt="poster of ${movie.title}">
+            <h3 id="vote"> Rating: ${movie.vote_average} </h3>
         </div>
+        <div class="flip-card-back">
+      <h2 id="title">${movie.title}</h2> 
+      <p>${movie.overview}</p> 
+      <p>${movie.vote_average}</p>
+    </div>
+    </div>
+    </div>
+    <label>
+
+    </div>
+
     `
 
 }
@@ -107,4 +124,5 @@ window.onload = function () {
         movies.forEach(m => MakeMovieCard(m, movieGridElement))
         
     }
+
 }
