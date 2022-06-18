@@ -42,9 +42,8 @@ Deployed Application (optional): [Flixster Deployed Site](https://nuhaq.github.i
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+![](https://github.com/nuhaq/flixster_starter/blob/main/load.gif)
+![](https://github.com/nuhaq/flixster_starter/blob/main/search.gif)
 
 ### Reflection
 
