@@ -42,8 +42,10 @@ Deployed Application (optional): [Flixster Deployed Site](https://nuhaq.github.i
 
 ### Walkthrough Video
 
+![](https://github.com/nuhaq/flixster_starter/blob/main/flip.gif)
 ![](https://github.com/nuhaq/flixster_starter/blob/main/load.gif)
 ![](https://github.com/nuhaq/flixster_starter/blob/main/search.gif)
+![](https://github.com/nuhaq/flixster_starter/blob/main/size.gif)
 
 ### Reflection
 
