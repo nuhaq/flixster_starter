@@ -13,7 +13,7 @@ html {
     justify-items: center;
 }
 
-#loadbtn {
+#load-more-movies-btn {
     background-color:antiquewhite;
     padding: 12px;
     border-radius: 14px;
@@ -43,7 +43,7 @@ h1 {
     }
 }
 
-#title {
+.movie-title {
     font-size: larger;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;

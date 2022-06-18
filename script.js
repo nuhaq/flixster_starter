@@ -1,10 +1,10 @@
 let movies = [];
 const movieGridElement = document.querySelector("#movies-grid")
 const searchBarElement = document.querySelector("#search")
-const searchParamElement = document.querySelector("#search-param")
+const searchParamElement = document.querySelector("#search-input")
 const loadPagesElement = document.querySelector("#loading-pages")
 let page = 1
-const clearButtonElement = document.querySelector("#clear")
+const clearButtonElement = document.querySelector("#close-search-btn")
 
 
 
@@ -31,12 +31,12 @@ function MakeMovieCard(movie, movieGridElement) {
     <div class="flip-card active">
     <div class="flip-card-inner">
         <div class="movie-card">
-            <h2 id="title"> ${movie.title} </h2>
-            <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" id="pic" alt="poster of ${movie.title}">
-            <h3 id="vote"> Rating: ${movie.vote_average} </h3>
+            <h2 class="movie-title"> ${movie.title} </h2>
+            <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" id="pic" class="movie-poster" alt="poster of ${movie.title}">
+            <h3 id="vote" class="movie-votes"> Rating: ${movie.vote_average} </h3>
         </div>
         <div class="flip-card-back" id="id-${movie.id}">
-      <h2 id="title">${movie.title}</h2> 
+      <h2 class="movie-title">${movie.title}</h2> 
       <p id="overview">${movie.overview}</p> 
       <p id="vote-pt2">Average rating of ${movie.vote_average} by ${movie.vote_count} people</p>
     </div>
@@ -105,6 +105,5 @@ window.onload = function () {
         searchParamElement.value = ""
         movieGridElement.innerHTML = ``;
         movies.forEach(m => MakeMovieCard(m, movieGridElement))
-        
     }
 }
