@@ -4,7 +4,7 @@
 
 Submitted by: Nuha Qadir
 
-Estimated time spent: 22 hours spent in total
+Estimated time spent: 12 hours spent in total
 
 Deployed Application (optional): [Flixster Deployed Site](https://nuhaq.github.io/flixster_starter/)
 
